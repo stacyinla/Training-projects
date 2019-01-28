@@ -47,7 +47,7 @@ VALUES  ('City of Angels', 'USA, Germany', '$198 685 114', '1998'),
         ('Они сражались за Родину', 'СССР','','1975'),
         ('Taxi', 'France', '$368 254', '1998');
 </pre>
-Проверка:
+Проверка:<br>
 <img src="query_insert1.PNG" alt="">
 
 <pre>
@@ -65,7 +65,7 @@ VALUES  ('{"Seale","John"}'),           --оператор Город Ангел
         ('{"Naceri","Samy"}')           --Актер Такси
  ;         
 </pre>
-Проверка:
-<img src="query_insert2.PNG" alt="">
-<br/>
-<img src="query_insert2_1.PNG" alt="">
+Проверка 1:<br>
+<img src="query_insert2.PNG" alt=""><br/>
+Проверка 2: <br>
+<img src="query_insert2_1.PNG" alt=""><br/>
