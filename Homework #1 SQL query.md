@@ -47,8 +47,8 @@ VALUES  ('City of Angels', 'USA, Germany', '$198 685 114', '1998'),
         ('Они сражались за Родину', 'СССР','','1975'),
         ('Taxi', 'France', '$368 254', '1998');
 </pre>
-
-<img src="query_insert1" alt="">
+Проверка:
+<img src="query_insert1.png" alt="">
 
 <pre>
 INSERT INTO persons (person_name)
@@ -65,5 +65,7 @@ VALUES  ('{"Seale","John"}'),           --оператор Город Ангел
         ('{"Naceri","Samy"}')           --Актер Такси
  ;         
 </pre>
+Проверка:
 <img src="query_insert2" alt="">
+<br/>
 <img src="query_insert2_1" alt="">
