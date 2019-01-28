@@ -38,7 +38,7 @@ INSERT INTO films (film_name, country, box_office, year)
 VALUES  ('City of Angels', 'USA, Germany', '198685114', '1998'),
         ('The Prestige', 'USA, UK', '109676311', '2006'),
         ('Law Abiding Citizen','USA','126635256','2009'),
-        ('Они сражались за Родину', 'СССР','','1975'),
+        ('Они сражались за Родину', 'СССР',null, '1975'),
         ('Taxi', 'France', '368254', '1998');
 </pre>
 Проверка:<br>
@@ -64,9 +64,9 @@ VALUES  ('{"Seale","John"}'),           --оператор Город Ангел
 Проверка 2 (выведем только фамилии): <br>
 <img src="query_insert2_1.PNG" alt=""><br/>
 <br><br>
-На этапе формирования третьего запроса INSERT стало понятно, что не совсем корректно выбран PRIMARY KEY в таблице persons_films, так как Сергей Бондарчук имеет несколько ролей в фильме "Они сражались за Родину" и должен иметь две записи в этой таблице. <br>
+На этапе формирования третьего запроса INSERT стало понятно, что не совсем корректно выбран PRIMARY KEY в таблице <b>persons_films</b>, так как Сергей Бондарчук имеет несколько ролей в фильме "Они сражались за Родину" и должен иметь две записи в этой таблице. <br>
 Придется сначла удалить таблицу, добавить снова с верным PK и только потом внести данные. <br>
-Хотя было бы более корректным создать таблицу roles и связать ее подобно существующим с таблицей persons_films.
+Хотя было бы более корректным создать таблицу <b>roles</b> и связать ее подобно существующим с таблицей <b>persons_films</b>.
 <pre>
 DROP TABLE persons_films;
 
@@ -77,7 +77,7 @@ CREATE TABLE persons_films (
     PRIMARY KEY (id_person, id_film, role)                     -- составной первичный ключ
 );
 
-INSERT INTO persons_films (id_person, id_film. role)
+INSERT INTO persons_films (id_person, id_film, role)
 VALUES  (1, 1, 'оператор'),
         (2, 1, 'режиссер'),
         (3, 1, 'актер'),
@@ -92,8 +92,22 @@ VALUES  (1, 1, 'оператор'),
         (11, 5, 'актер')
 ;
 </pre>
-
+Проверка:<br>
+<img src="query_insert3.PNG" alt=""><br/>
 База данных изменилась так: <br>
 <img src="Homework1_SQL2.png" height=400px alt="">
 <br><br>
-Несколько примерой SQL запросов на получившейся БД:
+
+
+Можно проверить, все ли правильно сопоставилось с помощью запроса:
+
+<pre>
+SELECT  person_name, fil_name, role
+FROM    films, persons, persons_films
+WHERE   films.id_film = persons_films.id_films AND
+        persons.id_person = persons_films.id_person;
+</pre>
+Проверка:<br>
+<img src="FinalSelect.PNG" alt=""><br/>        
+
+
