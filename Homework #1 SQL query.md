@@ -1,12 +1,6 @@
 Проект базы данных:<br>
 <img src="Homework1_SQL.png" height=400px alt="">
 <br><br>
-SQL-запрос для создания базы данных под это задание:<br>
-<pre>
-CREATE DATABASE homework1;
-GRANT ALL PRIVILEGES ON DATABASE homework1 TO postgres;
-</pre>
-<br><br>
 SQL-запрос для создания таблицы <b>films</b><br>
 <pre>
 CREATE TABLE homework1.films (
