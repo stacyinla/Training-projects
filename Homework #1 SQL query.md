@@ -46,8 +46,8 @@ VALUES  ('City of Angels', 'USA, Germany', '$198 685 114', '1998'),
         ('Law Abiding Citizen','USA','$126 635 256','2009'),
         ('Они сражались за Родину', 'СССР','','1975'),
         ('Taxi', 'France', '$368 254', '1998');
-        
 </pre>
+
 <img src="query_insert1" alt="">
 
 <pre>
@@ -63,7 +63,7 @@ VALUES  ('{"Seale","John"}'),           --оператор Город Ангел
         ('{"Бондарчук","Сергей"}'),     --режисер И АКТЕР Они сражались
         ('{"Шукшин","Василий"}'),       --актер
         ('{"Naceri","Samy"}')           --Актер Такси
- ;           
-        
+ ;         
 </pre>
-
+<img src="query_insert2" alt="">
+<img src="query_insert2_1" alt="">
