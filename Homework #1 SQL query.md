@@ -102,9 +102,9 @@ VALUES  (1, 1, 'оператор'),
 Можно проверить, все ли правильно сопоставилось с помощью запроса:
 
 <pre>
-SELECT  person_name, fil_name, role
+SELECT  person_name, film_name, role
 FROM    films, persons, persons_films
-WHERE   films.id_film = persons_films.id_films AND
+WHERE   films.id_film = persons_films.id_film AND
         persons.id_person = persons_films.id_person;
 </pre>
 Проверка:<br>
