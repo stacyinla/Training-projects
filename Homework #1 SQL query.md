@@ -13,7 +13,7 @@ CREATE TABLE films (
     id_film     serial PRIMARY KEY,       -- первичный ключ, serial - числовой тип данных с автоувеличением
     film_name   VARCHAR (100) NOT NULL,   -- строка до 100 символов, не уникальный, не пустой
     country     VARCHAR (50) NOT NULL,    -- строка до 50 символов, не уник, не пустой
-    box_office  VARCHAR (25),             -- строка из 25 символов
+    box_office  INTEGER,                  -- число
     year        INTEGER                   -- число
 );
 </pre>
@@ -42,10 +42,10 @@ CREATE TABLE persons_films (
 <pre>
 INSERT INTO films (film_name, country, box_office, year)
 VALUES  ('City of Angels', 'USA, Germany', '$198 685 114', '1998'),
-        ('The Prestige', 'USA, UK', '$109 676 311', '2006'),
-        ('Law Abiding Citizen','USA','$126 635 256','2009'),
+        ('The Prestige', 'USA, UK', '109676311', '2006'),
+        ('Law Abiding Citizen','USA','126635256','2009'),
         ('Они сражались за Родину', 'СССР','','1975'),
-        ('Taxi', 'France', '$368 254', '1998');
+        ('Taxi', 'France', '368254', '1998');
 </pre>
 Проверка:<br>
 <img src="query_insert1.PNG" alt="">
