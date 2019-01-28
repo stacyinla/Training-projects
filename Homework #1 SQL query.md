@@ -48,7 +48,7 @@ VALUES  ('City of Angels', 'USA, Germany', '$198 685 114', '1998'),
         ('Taxi', 'France', '$368 254', '1998');
 </pre>
 Проверка:
-<img src="query_insert1.png" alt="">
+<img src="query_insert1.PNG" alt="">
 
 <pre>
 INSERT INTO persons (person_name)
@@ -66,6 +66,6 @@ VALUES  ('{"Seale","John"}'),           --оператор Город Ангел
  ;         
 </pre>
 Проверка:
-<img src="query_insert2" alt="">
+<img src="query_insert2.PNG" alt="">
 <br/>
-<img src="query_insert2_1" alt="">
+<img src="query_insert2_1.PNG" alt="">
