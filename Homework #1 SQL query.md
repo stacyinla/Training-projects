@@ -1,13 +1,13 @@
-Проект базы данных:<br>
+Проект базы данных:<br><br>
 <img src="Homework1_SQL.png" height=400px alt="">
 
-SQL-запрос для создания базы данных под это задание:
+SQL-запрос для создания базы данных под это задание:<br><br>
 <code>
 CREATE DATABASE homework1;
 GRANT ALL PRIVILEGES ON DATABASE homework1 TO postgres;
 </code>
 
-SQL-запрос для создания таблицы <b>films</b>
+SQL-запрос для создания таблицы <b>films</b><br><br>
 <code>
 CREATE TABLE films (
     id_film     serial PRIMARY KEY,       -- первичный ключ, serial - генерирует id
