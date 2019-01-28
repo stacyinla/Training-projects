@@ -21,7 +21,7 @@ CREATE TABLE films (
 SQL-запрос для создания таблицы <b>persons</b><br>
 <pre>
 CREATE TABLE persons (
-    id_person   serial PRIMARY KEY,       -- первичный ключ, serial - генерирует id
+    id_person   serial PRIMARY KEY,       -- первичный ключ, serial - числовой тип данных с автоувеличением
     person_name VARCHAR (20)[2] NOT NULL  -- массив из 2-ух строк до 20 символов, не пустой
 );
 </pre>
@@ -41,7 +41,7 @@ CREATE TABLE persons_films (
 
 <pre>
 INSERT INTO films (film_name, country, box_office, year)
-VALUES  ('City of Angels', 'USA, Germany', '$198 685 114', '1998'),
+VALUES  ('City of Angels', 'USA, Germany', '198685114', '1998'),
         ('The Prestige', 'USA, UK', '109676311', '2006'),
         ('Law Abiding Citizen','USA','126635256','2009'),
         ('Они сражались за Родину', 'СССР','','1975'),
