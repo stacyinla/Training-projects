@@ -47,4 +47,23 @@ VALUES  ('City of Angels', 'USA, Germany', '$198 685 114', '1998'),
         ('Они сражались за Родину', 'СССР','','1975'),
         ('Taxi', 'France', '$368 254', '1998');
         
+</pre>
+<img src="query_insert1" alt="">
+
+<pre>
+INSERT INTO persons (person_name)
+VALUES  ('Seale','John'),           --оператор Город Ангелов
+        ('Silberling','Brad'),      -- режиссер ГА
+        ('Cage','Nicolas'),         --актер ГА
+        ('Ryan','Meg'),             --актер ГА
+        ('Nolan','Christopher'),    --режисер Престиж
+        ('Jackman','Hugh'),         --актер П
+        ('Caine','Michael'),        --актер П
+        ('Gray','F. Gary'),         --режиссер ЗакГражданин
+        ('Бондарчук','Сергей'),     --режисер И АКТЕР Они сражались
+        ('Шукшин','Василий'),       --актер
+        ('Naceri','Samy')           --Актер Такси
+ ;           
+        
+</pre>
 
