@@ -1,5 +1,5 @@
 
-<img src="Homework1_SQL" alt="Проект базы данных">
+<img src="Homework1_SQL.png" height=400px alt="">
 
 <code>
 CREATE DATABASE homework1;
