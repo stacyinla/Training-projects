@@ -6,7 +6,7 @@ SELECT * FROM ratings LIMIT 10;
 </pre>
 
 1.2 WHERE, LIKE - выбрать из таблицы links всё записи, у которых imdbid оканчивается на "42", а поле movieid между 100 и 1000
-</pre>
+<pre>
 SELECT * FROM links 
 WHERE imdbid LIKE '%42' AND
 	  movieid BETWEEN 100 AND 1000
@@ -16,7 +16,7 @@ LIMIT 10;
 2. Сложные выборки: JOIN
 2.1 INNER JOIN выбрать из таблицы links все imdb_id, которым ставили рейтинг 5
 <pre>
-SELECT DISTINCT imdb_id 
+SELECT DISTINCT imdbid 
 FROM links 
 INNER JOIN ratings
 	ON links.movieid = ratings.movieid
@@ -27,7 +27,7 @@ LIMIT 10;
 3. Аггрегация данных: базовые статистики
 3.1 COUNT() Посчитать число фильмов без оценок
 <pre>
-SELECT COUNT(movieid)
+SELECT COUNT(links.movieid)
 FROM links
 LEFT JOIN ratings
 	ON links.movieid = ratings.movieid 
