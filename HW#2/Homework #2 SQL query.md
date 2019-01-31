@@ -50,10 +50,13 @@ LIMIT 10;
 <pre>
 SELECT imdbid
 FROM links
-WHERE links.movieid IN (SELECT ratings.movieid
-						FROM ratings
-						GROUP BY movieid
-						HAVING avg(rating) > 3.5)
+WHERE links.movieid IN 
+	(
+	SELECT ratings.movieid
+	FROM ratings
+	GROUP BY movieid
+	HAVING avg(rating) > 3.5
+	)
 LIMIT 10;
 </pre>
 
