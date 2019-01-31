@@ -14,7 +14,7 @@ WHERE imdbid LIKE '%42' AND
 	  movieid BETWEEN 100 AND 1000
 LIMIT 10;
 </pre>
-<img src="hw2-1.2.png" alt="">
+<img src="hw2-1.2.PNG" alt="">
 <br/><br/>
 
 2. Сложные выборки: JOIN
@@ -27,7 +27,7 @@ INNER JOIN ratings
 WHERE ratings.rating = 5
 LIMIT 10;
 </pre>
-<img src="hw2-2.png" alt="">
+<img src="hw2-2.PNG" alt="">
 <br/><br/>
 
 3. Аггрегация данных: базовые статистики
@@ -40,7 +40,7 @@ LEFT JOIN ratings
 WHERE ratings.rating IS NULL
 LIMIT 10;
 </pre>
-<img src="HW#2/hw2-3.1.png" alt="">
+<img src="HW#2/hw2-3.1.PNG" alt="">
 <br/><br/>
 
 3.2 GROUP BY, HAVING вывести top-10 пользователей, у который средний рейтинг выше 3.5
@@ -52,7 +52,7 @@ HAVING AVG(rating)>3.5
 ORDER BY AVG(rating) DESC
 LIMIT 10;
 </pre>
-<img src="hw2-3.2.png" alt="">
+<img src="hw2-3.2.PNG" alt="">
 <br/><br/>
 
 4. Иерархические запросы
@@ -69,7 +69,7 @@ WHERE links.movieid IN
 	)
 LIMIT 10;
 </pre>
-<img src="hw2-4.1.png" alt=""><br/><br/>
+<img src="hw2-4.1.PNG" alt=""><br/><br/>
 
 4.2 Common Table Expressions: посчитать средний рейтинг по пользователям, у которых более 10 оценок
 <pre>
@@ -82,4 +82,4 @@ AS	(SELECT userid, avg(rating) AS user_average
 SELECT AVG(user_average) as average
 FROM new_table;
 </pre>
-<img src="hw2-4.2.png" alt="">
+<img src="hw2-4.2.PNG" alt="">
