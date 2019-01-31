@@ -48,10 +48,23 @@ LIMIT 10;
 4. Иерархические запросы
 4.1 Подзапросы: достать 10 imbdId из links у которых средний рейтинг больше 3.5
 <pre>
-
+SELECT imbdId 
+FROM links
+WHERE links.movieid IN (SELECT ratings.movieid
+						FROM ratings
+						GROUP BY movieid
+						HAVING avg(rating) > 3.5)
+LIMIT 10;
 </pre>
 
 4.2 Common Table Expressions: посчитать средний рейтинг по пользователям, у которых более 10 оценок
 <pre>
-
+WITH new_table
+AS	(SELECT userid, avg(rating) AS user_average
+	FROM rating
+	GROUP BY userid
+	HAVING COUNT(rating) > 10)
+	
+SELECT AVG(user_average)
+FROM new_table;
 </pre>
