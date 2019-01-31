@@ -40,7 +40,7 @@ LEFT JOIN ratings
 WHERE ratings.rating IS NULL
 LIMIT 10;
 </pre>
-<img src="hw2-3.1.png" alt="">
+<img src="HW#2/hw2-3.1.png" alt="">
 <br/><br/>
 
 3.2 GROUP BY, HAVING вывести top-10 пользователей, у который средний рейтинг выше 3.5
