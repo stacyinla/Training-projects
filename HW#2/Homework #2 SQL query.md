@@ -48,7 +48,7 @@ LIMIT 10;
 4. Иерархические запросы
 4.1 Подзапросы: достать 10 imbdId из links у которых средний рейтинг больше 3.5
 <pre>
-SELECT imbdId 
+SELECT imdbid
 FROM links
 WHERE links.movieid IN (SELECT ratings.movieid
 						FROM ratings
@@ -61,10 +61,10 @@ LIMIT 10;
 <pre>
 WITH new_table
 AS	(SELECT userid, avg(rating) AS user_average
-	FROM rating
+	FROM ratings
 	GROUP BY userid
 	HAVING COUNT(rating) > 10)
 	
-SELECT AVG(user_average)
+SELECT AVG(user_average) as average
 FROM new_table;
 </pre>
