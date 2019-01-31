@@ -17,10 +17,10 @@ LIMIT 10;
 <img src="hw2-1.2.PNG" alt="">
 <br/><br/>
 
-2. Сложные выборки: JOIN
+2. Сложные выборки: JOIN<br/>
 2.1 INNER JOIN выбрать из таблицы links все imdb_id, которым ставили рейтинг 5
 <pre>
-SELECT DISTINCT imdbid 
+SELECT DISTINCT imdbid 			-- distinct можно было не использовать
 FROM links 
 INNER JOIN ratings
 	ON links.movieid = ratings.movieid
@@ -40,7 +40,7 @@ LEFT JOIN ratings
 WHERE ratings.rating IS NULL
 LIMIT 10;
 </pre>
-<img src="HW#2/hw2-3.1.PNG" alt="">
+<img src="hw2-3.1.PNG" alt="">
 <br/><br/>
 
 3.2 GROUP BY, HAVING вывести top-10 пользователей, у который средний рейтинг выше 3.5
