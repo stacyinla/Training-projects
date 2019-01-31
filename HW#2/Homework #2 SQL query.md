@@ -4,7 +4,7 @@
 <pre>
 SELECT * FROM ratings LIMIT 10;
 </pre>
-<img src="hw2-1.1.png" alt="">
+<img src="hw2-1.1.PNG" alt="">
 <br/><br/>
 
 1.2 WHERE, LIKE - выбрать из таблицы links всё записи, у которых imdbid оканчивается на "42", а поле movieid между 100 и 1000
