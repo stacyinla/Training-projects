@@ -1,9 +1,11 @@
-1. Простые выборки
-1.1 SELECT, LIMIT - выбрать 10 записей из таблицы rating
+1. Простые выборки<br/>
+1.1 SELECT, LIMIT - выбрать 10 записей из таблицы rating<br/>
 
 <pre>
 SELECT * FROM ratings LIMIT 10;
 </pre>
+<img src="hw2-1.1.png" alt="">
+<br/><br/>
 
 1.2 WHERE, LIKE - выбрать из таблицы links всё записи, у которых imdbid оканчивается на "42", а поле movieid между 100 и 1000
 <pre>
@@ -12,6 +14,8 @@ WHERE imdbid LIKE '%42' AND
 	  movieid BETWEEN 100 AND 1000
 LIMIT 10;
 </pre>
+<img src="hw2-1.2.png" alt="">
+<br/><br/>
 
 2. Сложные выборки: JOIN
 2.1 INNER JOIN выбрать из таблицы links все imdb_id, которым ставили рейтинг 5
@@ -23,6 +27,8 @@ INNER JOIN ratings
 WHERE ratings.rating = 5
 LIMIT 10;
 </pre>
+<img src="hw2-2.png" alt="">
+<br/><br/>
 
 3. Аггрегация данных: базовые статистики
 3.1 COUNT() Посчитать число фильмов без оценок
@@ -34,6 +40,8 @@ LEFT JOIN ratings
 WHERE ratings.rating IS NULL
 LIMIT 10;
 </pre>
+<img src="hw2-3.1.png" alt="">
+<br/><br/>
 
 3.2 GROUP BY, HAVING вывести top-10 пользователей, у который средний рейтинг выше 3.5
 <pre>
@@ -44,6 +52,8 @@ HAVING AVG(rating)>3.5
 ORDER BY AVG(rating) DESC
 LIMIT 10;
 </pre>
+<img src="hw2-3.2.png" alt="">
+<br/><br/>
 
 4. Иерархические запросы
 4.1 Подзапросы: достать 10 imbdId из links у которых средний рейтинг больше 3.5
@@ -59,6 +69,7 @@ WHERE links.movieid IN
 	)
 LIMIT 10;
 </pre>
+<img src="hw2-4.1.png" alt=""><br/><br/>
 
 4.2 Common Table Expressions: посчитать средний рейтинг по пользователям, у которых более 10 оценок
 <pre>
@@ -71,3 +82,4 @@ AS	(SELECT userid, avg(rating) AS user_average
 SELECT AVG(user_average) as average
 FROM new_table;
 </pre>
+<img src="hw2-4.2.png" alt="">
