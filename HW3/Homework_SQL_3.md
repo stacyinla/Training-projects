@@ -42,9 +42,9 @@ WITH top_rated AS
 	FROM	ratings
 	GROUP BY movieid
 	HAVING	COUNT(rating) > 50
-	ORDER BY avg_rating DESC						--при добавлении запроса2 строка потеряла смысл
+	ORDER BY avg_rating DESC				--при добавлении запроса2 строка потеряла смысл
 	)
-SELECT 												--запрос2
+SELECT 								--запрос2
 	top_rated.movieid, 
 	top_rated.avg_rating, 
 	keywords.tags					
@@ -52,7 +52,8 @@ FROM top_rated
 LEFT JOIN keywords
 		ON top_rated.movieid = keywords.movieid
 ORDER BY avg_rating DESC
-LIMIT 150;	</pre>
+LIMIT 150;	
+</pre>
 <img src="hw3_3.PNG" alt="">
 <br/><br/>
 
