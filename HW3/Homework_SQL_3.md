@@ -21,11 +21,8 @@ LIMIT 30;
 Extract<br>
 <pre>
 psql -U postgres -c 'CREATE TABLE IF NOT EXISTS keywords (id INTEGER PRIMARY KEY, tags VARCHAR);'
-
 psql -U postgres -c "\\copy keywords FROM '/usr/local/share/netology/raw_data/keywords.csv' DELIMITER ',' CSV HEADER"
-
 psql -U postgres
-
 SELECT COUNT(*) FROM keywords;
 </pre>
 <img src="hw3_2.PNG" alt="">
