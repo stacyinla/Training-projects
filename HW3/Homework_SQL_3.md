@@ -34,3 +34,16 @@ SELECT COUNT(*) FROM keywords;
 <img src="hw3_2.PNG" alt="">
 <br/><br/>
 
+Transform<br>
+<pre>
+</pre>
+<img src="hw3_3.PNG" alt="">
+<br/><br/>
+
+Load<br>
+<pre>
+</pre>
+<img src="hw3_4.PNG" alt="">
+<br/><br/>
+
+
