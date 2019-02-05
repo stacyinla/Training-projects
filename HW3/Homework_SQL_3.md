@@ -9,7 +9,7 @@ avg_rating - среднее значение рейтинга у данного 
 <pre>
 SELECT 	userId, 
 		movieId, 
-		((rating - MIN(rating) OVER (PARTITION BY userId)) / (MIN(rating) OVER (PARTITION BY userId) - MAX(rating) OVER (PARTITION BY userId)))  AS normed_rating, 
+		((rating - MIN(rating) OVER (PARTITION BY userId)) / (MAX(rating) OVER (PARTITION BY userId) - MIN(rating) OVER (PARTITION BY userId)))  AS normed_rating, 
 		AVG(rating) OVER (PARTITION BY userId) avg_rating 
 FROM ratings 
 LIMIT 30;
