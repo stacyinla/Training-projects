@@ -36,25 +36,29 @@ SELECT COUNT(*) FROM keywords;
 
 Transform<br>
 <pre>
-</pre>
-<img src="hw3_3.PNG" alt="">
-<br/><br/>
-
-Load<br>
-<pre>
 WITH top_rated AS
 	(
 	SELECT movieid, AVG(rating) AS avg_rating		--запрос1
 	FROM	ratings
 	GROUP BY movieid
 	HAVING	COUNT(rating) > 50
-	ORDER BY avg_rating DESC
+	ORDER BY avg_rating DESC						--при добавлении запроса2 строка потеряла смысл
 	)
-SELECT movieid, avg_rating, tags					--запрос2
+SELECT 												--запрос2
+	top_rated.movieid, 
+	top_rated.avg_rating, 
+	keywords.tags					
 FROM top_rated 
 LEFT JOIN keywords
 		ON top_rated.movieid = keywords.movieid
-LIMIT 150;	
+ORDER BY avg_rating DESC
+LIMIT 150;	</pre>
+<img src="hw3_3.PNG" alt="">
+<br/><br/>
+
+Load<br>
+<pre>
+
 </pre>
 <img src="hw3_4.PNG" alt="">
 <br/><br/>
