@@ -42,6 +42,12 @@ Transform<br>
 
 Load<br>
 <pre>
+SELECT	movieid, AVG(rating) AS avg_rating
+FROM	ratings
+GROUP BY movieid
+HAVING	COUNT(rating) > 50
+ORDER BY avg_rating DESC
+LIMIT 150;
 </pre>
 <img src="hw3_4.PNG" alt="">
 <br/><br/>
