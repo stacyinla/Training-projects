@@ -28,3 +28,6 @@ psql -U postgres
 
 SELECT COUNT(*) FROM keywords;
 </pre>
+<img src="hw3_2.PNG" alt="">
+<br/><br/>
+
