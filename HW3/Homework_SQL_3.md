@@ -42,12 +42,19 @@ Transform<br>
 
 Load<br>
 <pre>
-SELECT	movieid, AVG(rating) AS avg_rating
-FROM	ratings
-GROUP BY movieid
-HAVING	COUNT(rating) > 50
-ORDER BY avg_rating DESC
-LIMIT 150;
+WITH top_rated AS
+	(
+	SELECT movieid, AVG(rating) AS avg_rating		--запрос1
+	FROM	ratings
+	GROUP BY movieid
+	HAVING	COUNT(rating) > 50
+	ORDER BY avg_rating DESC
+	)
+SELECT movieid, avg_rating, tags					--запрос2
+FROM top_rated 
+LEFT JOIN keywords
+		ON top_rated.movieid = keywords.movieid
+LIMIT 150;	
 </pre>
 <img src="hw3_4.PNG" alt="">
 <br/><br/>
