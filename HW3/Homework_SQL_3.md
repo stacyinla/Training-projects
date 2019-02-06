@@ -59,9 +59,31 @@ LIMIT 150;
 
 Load<br>
 <pre>
-
+WITH top_rated AS
+	(
+	SELECT movieid, AVG(rating) AS avg_rating		--запрос1
+	FROM	ratings
+	GROUP BY movieid
+	HAVING	COUNT(rating) > 50
+	ORDER BY avg_rating DESC				--при добавлении запроса2 строка потеряла смысл
+	)
+SELECT 								--запрос2
+	top_rated.movieid, 
+	top_rated.avg_rating, 
+	keywords.tags
+INTO top_rated_tags	
+FROM top_rated 
+LEFT JOIN keywords
+		ON top_rated.movieid = keywords.movieid
+ORDER BY avg_rating DESC
+;	
 </pre>
-<img src="hw3_4.PNG" alt="">
+<pre>
+\copy (SELECT * FROM top_rated_tags) TO 'top_rated_tags.csv' WITH CSV HEADER DELIMITER E'\t';
+</pre>
+<img src="hw3_4.PNG" alt=""><br>
+<img src="hw3_5.PNG" alt=""><br>
+<img src="hw3_6.PNG" alt=""><br>
 <br/><br/>
 
 
