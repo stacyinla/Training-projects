@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS keywords 
 	(
 	id INTEGER PRIMARY KEY, 
-	tags VARCHAR
+	tags TEXT
 	);
 
 
