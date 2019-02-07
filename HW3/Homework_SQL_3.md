@@ -20,7 +20,7 @@ LIMIT 30;
 <p><b>ETL</b><br>
 Extract<br>
 <pre>
-psql -U postgres -c 'CREATE TABLE IF NOT EXISTS keywords (id INTEGER PRIMARY KEY, tags VARCHAR);'
+psql -U postgres -c 'CREATE TABLE IF NOT EXISTS keywords (id INTEGER PRIMARY KEY, tags TEXT);'
 </pre>
 <pre>
 psql -U postgres -c "\\copy keywords FROM '/usr/local/share/netology/raw_data/keywords.csv' DELIMITER ',' CSV HEADER"
