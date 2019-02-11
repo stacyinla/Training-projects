@@ -32,6 +32,7 @@ db.tags.find({name:'woman'}).count()
 
 <p>
 2.3) используя группировку данных ($groupby) вывести top-3 самых распространённых тегов
+Удалось справиться только с подсказками в Slack, трудности были в разборке синтаксиса запроса. 
 </p>
 <pre>
 db.tags.aggregate([ {$group: {_id: "$name", tag_count: {$sum: 1}}} , {$sort: {tag_count: -1} } , {$limit : 3} ])
