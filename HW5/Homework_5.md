@@ -5,7 +5,7 @@
 /usr/bin/mongo localhost:27017
 </pre>
 <pre>
-/usr/bin/mongoimport --host $APP_MONGO_HOST --port $APP_MONGO_PORT --db movies --collection tags --file /data/simple_tags.json
+/usr/bin/mongoimport --host localhost --port 27017 --db movies --collection tags --file /usr/local/share/netology/raw_data/simple_tags.json
 use movies
 </pre>
 <img src="hw5_1.PNG" alt="">
@@ -25,7 +25,7 @@ db.tags.count()
 2.2) подсчитайте число фильмов с конкретным тегом - woman
 </p>
 <pre>
-db.tags.find({tags:'woman'}).count()
+db.tags.find({name:'woman'}).count()
 </pre>
 <img src="hw5_3.PNG" alt="">
 <br/><br/>
