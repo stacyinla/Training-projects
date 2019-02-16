@@ -1,3 +1,4 @@
+/*
 CREATE TABLE IF NOT EXISTS Department 
  	(
       id integer PRIMARY KEY,
@@ -43,7 +44,7 @@ INSERT INTO Employee values
 ('19', '6', '9', 'Jessy', 19),
 ('20', '6', '9', 'Ann', 18);
 
-
+*/
 
 
 --a Вывести список названий департаментов и количество главных врачей в каждом из этих департаментов
