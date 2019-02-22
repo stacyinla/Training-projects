@@ -1,112 +1,102 @@
-1;Publication Name 1;Critical Reviews in Oncogenesis;0,392
-2;Publication Name 5;Current Pain and Headache Reports;0,509
-3;Publication Name 9;Diabetes and Vascular Disease Research;0,774
-4;Publication Name 13;Diabetes Care;0,08
-5;Publication Name 17;Cutaneous and Ocular Toxicology;0,815
-6;Publication Name 21;DARU Journal of Pharmaceutical Sciences;0,222
-7;Publication Name 25;Diabetes;0,7
-8;Publication Name 29;Diabetes and Vascular Disease Research;0,782
-9;Publication Name 33;Diabetes Care;0,719
-10;Publication Name 37;Cutaneous and Ocular Toxicology;0,325
-11;Publication Name 41;DARU Journal of Pharmaceutical Sciences;0,435
-12;Publication Name 45;Deutsche Medizinische Wochenschrift;0,926
-13;Publication Name 49;European Journal of Physiotherapy;0,842
-14;Publication Name 53;European Medical Journal;0,272
-15;Publication Name 57;European Journal of Physiotherapy;0,378
-16;Publication Name 61;European Medical Journal;0,374
-17;Publication Name 65;European Journal of Physiotherapy;0,682
-18;Publication Name 69;European Medical Journal;0,807
-19;Publication Name 73;Diabetes;0,838
-20;Publication Name 77;Diabetes and Vascular Disease Research;0,932
-21;Publication Name 81;Diabetes Care;0,453
-22;Publication Name 85;Cutaneous and Ocular Toxicology;0,042
-23;Publication Name 89;European Journal of Cancer Prevention;0,646
-24;Publication Name 93;European Journal of General Practice;0,246
-25;Publication Name 97;European Journal of Medical Research;0,125
-26;Publication Name 101;European Journal of Palliative Care;0,503
-27;Publication Name 105;European Journal of Physiotherapy;0,81
-28;Publication Name 109;European Medical Journal;0,126
-29;Publication Name 113;European Radiology;0,116
-30;Publication Name 117;Expert Opinion on Biological Therapy;0,363
-31;Publication Name 121;Human Reproduction;0,393
-32;Publication Name 125;Hypertension;0,682
-33;Publication Name 129;Immunogenetics;0,828
-34;Publication Name 133;Indian Journal of Anaesthesia;0,915
-35;Publication Name 137;Indian Journal of Dermatology;0,151
-36;Publication Name 141;Indian Journal of Dermatology, Venereology and Leprology;0,951
-37;Publication Name 145;Indian Journal of Gastroenterology;0,276
-38;Publication Name 149;Indian Journal of Medical Microbiology;0,055
-39;Publication Name 153;Indian Journal of Medical Research;0,789
-40;Publication Name 157;Critical Reviews in Oncogenesis;0,505
-41;Publication Name 161;Current Pain and Headache Reports;0,968
-42;Publication Name 165;Diabetes and Vascular Disease Research;0,106
-43;Publication Name 169;Diabetes Care;0,278
-44;Publication Name 173;Cutaneous and Ocular Toxicology;0,127
-45;Publication Name 177;DARU Journal of Pharmaceutical Sciences;0,738
-46;Publication Name 181;Diabetes;0,56
-47;Publication Name 185;Diabetes and Vascular Disease Research;0,976
-48;Publication Name 189;Diabetes Care;0,975
-49;Publication Name 193;Cutaneous and Ocular Toxicology;0,812
-50;Publication Name 197;DARU Journal of Pharmaceutical Sciences;0,343
-51;Publication Name 201;Deutsche Medizinische Wochenschrift;0,275
-52;Publication Name 205;European Journal of Physiotherapy;0,023
-53;Publication Name 209;European Medical Journal;0,452
-54;Publication Name 213;European Journal of Physiotherapy;0,097
-55;Publication Name 217;European Medical Journal;0,149
-56;Publication Name 221;European Journal of Physiotherapy;0,742
-57;Publication Name 225;European Medical Journal;0,934
-58;Publication Name 229;Diabetes;0,885
-59;Publication Name 233;Diabetes Care;0,693
-60;Publication Name 237;Cutaneous and Ocular Toxicology;0,288
-61;Publication Name 241;DARU Journal of Pharmaceutical Sciences;0,613
-62;Publication Name 245;Deutsche Medizinische Wochenschrift;0,631
-63;Publication Name 249;European Journal of Physiotherapy;0,263
-64;Publication Name 253;European Medical Journal;0,28
-65;Publication Name 257;Diabetes Care;0,283
-66;Publication Name 261;Cutaneous and Ocular Toxicology;0,324
-67;Publication Name 265;DARU Journal of Pharmaceutical Sciences;0,722
-68;Publication Name 269;Deutsche Medizinische Wochenschrift;0,506
-69;Publication Name 273;European Journal of Physiotherapy;0,81
-70;Publication Name 277;European Medical Journal;0,016
-71;Publication Name 281;Diabetes Care;0,156
-72;Publication Name 285;Cutaneous and Ocular Toxicology;0,94
-73;Publication Name 289;DARU Journal of Pharmaceutical Sciences;0,782
-74;Publication Name 293;Deutsche Medizinische Wochenschrift;0,609
-75;Publication Name 297;European Journal of Physiotherapy;0,008
-76;Publication Name 301;European Medical Journal;0,34
-77;Publication Name 305;Diabetes Care;0,498
-78;Publication Name 309;Cutaneous and Ocular Toxicology;0,082
-79;Publication Name 313;DARU Journal of Pharmaceutical Sciences;0,958
-80;Publication Name 317;Deutsche Medizinische Wochenschrift;0,402
-81;Publication Name 321;European Journal of Physiotherapy;0,435
-82;Publication Name 325;European Medical Journal;0,538
-83;Publication Name 329;Diabetes and Vascular Disease Research;0,915
-84;Publication Name 333;Diabetes Care;0,676
-85;Publication Name 337;Cutaneous and Ocular Toxicology;0,588
-86;Publication Name 341;DARU Journal of Pharmaceutical Sciences;0,971
-87;Publication Name 345;Diabetes and Vascular Disease Research;0,253
-88;Publication Name 349;Diabetes Care;0,003
-89;Publication Name 353;Cutaneous and Ocular Toxicology;0,264
-90;Publication Name 357;DARU Journal of Pharmaceutical Sciences;0,607
-91;Publication Name 361;Diabetes;0,338
-92;Publication Name 365;Diabetes and Vascular Disease Research;0,631
-93;Publication Name 369;Diabetes Care;0,51
-94;Publication Name 373;Cutaneous and Ocular Toxicology;0,664
-95;Publication Name 377;DARU Journal of Pharmaceutical Sciences;0,689
-96;Publication Name 381;Deutsche Medizinische Wochenschrift;0,604
-97;Publication Name 385;European Journal of Physiotherapy;0,654
-98;Publication Name 389;European Medical Journal;0,901
-99;Publication Name 393;European Journal of Physiotherapy;0,399
-100;Publication Name 397;Diabetes and Vascular Disease Research;0,085
-101;Publication Name 401;Diabetes Care;0,087
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
+id;name;magazine;year;rating
+1;Publication Name 1;Critical Reviews in Oncogenesis;2012;0,392
+2;Publication Name 5;Current Pain and Headache Reports;2014;0,509
+3;Publication Name 9;Diabetes and Vascular Disease Research;2008;0,774
+4;Publication Name 13;Diabetes Care;2000;0,08
+5;Publication Name 17;Cutaneous and Ocular Toxicology;2010;0,815
+6;Publication Name 21;DARU Journal of Pharmaceutical Sciences;2008;0,222
+7;Publication Name 25;Diabetes;2018;0,7
+8;Publication Name 29;Diabetes and Vascular Disease Research;2013;0,782
+9;Publication Name 33;Diabetes Care;2010;0,719
+10;Publication Name 37;Cutaneous and Ocular Toxicology;2014;0,325
+11;Publication Name 41;DARU Journal of Pharmaceutical Sciences;2007;0,435
+12;Publication Name 45;Deutsche Medizinische Wochenschrift;2015;0,926
+13;Publication Name 49;European Journal of Physiotherapy;2007;0,842
+14;Publication Name 53;European Medical Journal;2008;0,272
+15;Publication Name 57;European Journal of Physiotherapy;2005;0,378
+16;Publication Name 61;European Medical Journal;2013;0,374
+17;Publication Name 65;European Journal of Physiotherapy;2008;0,682
+18;Publication Name 69;European Medical Journal;2012;0,807
+19;Publication Name 73;Diabetes;2003;0,838
+20;Publication Name 77;Diabetes and Vascular Disease Research;2019;0,932
+21;Publication Name 81;Diabetes Care;2006;0,453
+22;Publication Name 85;Cutaneous and Ocular Toxicology;2002;0,042
+23;Publication Name 89;European Journal of Cancer Prevention;2016;0,646
+24;Publication Name 93;European Journal of General Practice;2005;0,246
+25;Publication Name 97;European Journal of Medical Research;2007;0,125
+26;Publication Name 101;European Journal of Palliative Care;2007;0,503
+27;Publication Name 105;European Journal of Physiotherapy;2003;0,81
+28;Publication Name 109;European Medical Journal;2003;0,126
+29;Publication Name 113;European Radiology;2014;0,116
+30;Publication Name 117;Expert Opinion on Biological Therapy;2011;0,363
+31;Publication Name 121;Human Reproduction;2007;0,393
+32;Publication Name 125;Hypertension;2004;0,682
+33;Publication Name 129;Immunogenetics;2006;0,828
+34;Publication Name 133;Indian Journal of Anaesthesia;2000;0,915
+35;Publication Name 137;Indian Journal of Dermatology;2003;0,151
+36;Publication Name 141;Indian Journal of Dermatology, Venereology and Leprology;2010;0,951
+37;Publication Name 145;Indian Journal of Gastroenterology;2013;0,276
+38;Publication Name 149;Indian Journal of Medical Microbiology;2007;0,055
+39;Publication Name 153;Indian Journal of Medical Research;2006;0,789
+40;Publication Name 157;Critical Reviews in Oncogenesis;2017;0,505
+41;Publication Name 161;Current Pain and Headache Reports;2017;0,968
+42;Publication Name 165;Diabetes and Vascular Disease Research;2014;0,106
+43;Publication Name 169;Diabetes Care;2012;0,278
+44;Publication Name 173;Cutaneous and Ocular Toxicology;2001;0,127
+45;Publication Name 177;DARU Journal of Pharmaceutical Sciences;2001;0,738
+46;Publication Name 181;Diabetes;2010;0,56
+47;Publication Name 185;Diabetes and Vascular Disease Research;2010;0,976
+48;Publication Name 189;Diabetes Care;2019;0,975
+49;Publication Name 193;Cutaneous and Ocular Toxicology;2007;0,812
+50;Publication Name 197;DARU Journal of Pharmaceutical Sciences;2012;0,343
+51;Publication Name 201;Deutsche Medizinische Wochenschrift;2003;0,275
+52;Publication Name 205;European Journal of Physiotherapy;2015;0,023
+53;Publication Name 209;European Medical Journal;2000;0,452
+54;Publication Name 213;European Journal of Physiotherapy;2017;0,097
+55;Publication Name 217;European Medical Journal;2002;0,149
+56;Publication Name 221;European Journal of Physiotherapy;2010;0,742
+57;Publication Name 225;European Medical Journal;2002;0,934
+58;Publication Name 229;Diabetes;2017;0,885
+59;Publication Name 233;Diabetes Care;2018;0,693
+60;Publication Name 237;Cutaneous and Ocular Toxicology;2006;0,288
+61;Publication Name 241;DARU Journal of Pharmaceutical Sciences;2004;0,613
+62;Publication Name 245;Deutsche Medizinische Wochenschrift;2017;0,631
+63;Publication Name 249;European Journal of Physiotherapy;2010;0,263
+64;Publication Name 253;European Medical Journal;2003;0,28
+65;Publication Name 257;Diabetes Care;2005;0,283
+66;Publication Name 261;Cutaneous and Ocular Toxicology;2007;0,324
+67;Publication Name 265;DARU Journal of Pharmaceutical Sciences;2017;0,722
+68;Publication Name 269;Deutsche Medizinische Wochenschrift;2010;0,506
+69;Publication Name 273;European Journal of Physiotherapy;2004;0,81
+70;Publication Name 277;European Medical Journal;2004;0,016
+71;Publication Name 281;Diabetes Care;2014;0,156
+72;Publication Name 285;Cutaneous and Ocular Toxicology;2015;0,94
+73;Publication Name 289;DARU Journal of Pharmaceutical Sciences;2018;0,782
+74;Publication Name 293;Deutsche Medizinische Wochenschrift;2000;0,609
+75;Publication Name 297;European Journal of Physiotherapy;2009;0,008
+76;Publication Name 301;European Medical Journal;2009;0,34
+77;Publication Name 305;Diabetes Care;2001;0,498
+78;Publication Name 309;Cutaneous and Ocular Toxicology;2015;0,082
+79;Publication Name 313;DARU Journal of Pharmaceutical Sciences;2007;0,958
+80;Publication Name 317;Deutsche Medizinische Wochenschrift;2019;0,402
+81;Publication Name 321;European Journal of Physiotherapy;2011;0,435
+82;Publication Name 325;European Medical Journal;2019;0,538
+83;Publication Name 329;Diabetes and Vascular Disease Research;2019;0,915
+84;Publication Name 333;Diabetes Care;2002;0,676
+85;Publication Name 337;Cutaneous and Ocular Toxicology;2012;0,588
+86;Publication Name 341;DARU Journal of Pharmaceutical Sciences;2015;0,971
+87;Publication Name 345;Diabetes and Vascular Disease Research;2004;0,253
+88;Publication Name 349;Diabetes Care;2015;0,003
+89;Publication Name 353;Cutaneous and Ocular Toxicology;2000;0,264
+90;Publication Name 357;DARU Journal of Pharmaceutical Sciences;2016;0,607
+91;Publication Name 361;Diabetes;2015;0,338
+92;Publication Name 365;Diabetes and Vascular Disease Research;2008;0,631
+93;Publication Name 369;Diabetes Care;2012;0,51
+94;Publication Name 373;Cutaneous and Ocular Toxicology;2002;0,664
+95;Publication Name 377;DARU Journal of Pharmaceutical Sciences;2008;0,689
+96;Publication Name 381;Deutsche Medizinische Wochenschrift;2019;0,604
+97;Publication Name 385;European Journal of Physiotherapy;2006;0,654
+98;Publication Name 389;European Medical Journal;2016;0,901
+99;Publication Name 393;European Journal of Physiotherapy;2002;0,399
+100;Publication Name 397;Diabetes and Vascular Disease Research;2019;0,085
+101;Publication Name 401;Diabetes Care;2008;0,087
