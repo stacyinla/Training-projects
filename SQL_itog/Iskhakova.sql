@@ -1,50 +1,66 @@
-/*
 CREATE TABLE IF NOT EXISTS Department 
  	(
       id integer PRIMARY KEY,
       name varchar(100)
     );
     
- CREATE TABLE IF NOT EXISTS Employee 
+CREATE TABLE IF NOT EXISTS Degree
  	(
       id integer PRIMARY KEY,
-      department_id integer REFERENCES Department(id),
-      chief_doc_id integer,
-      name varchar(50),
-      num_public integer
+      name varchar(50)
     );
 
-INSERT INTO Department values
-('1', 'Therapy'),
-('2', 'Neurology'),
-('3', 'Cardiology'),
-('4', 'Gastroenterology'),
-('5', 'Hematology'),
-('6', 'Oncology');
+CREATE TABLE IF NOT EXISTS Employee 
+ 	(
+      id integer PRIMARY KEY,
+      dep_id integer REFERENCES Department(id),
+      chief_id integer,
+      name varchar(50),
+      degree_id integer REFERENCES Degree(id)
+    );
+   
+CREATE TABLE IF NOT EXISTS Publication 
+ 	(
+      id integer PRIMARY KEY,
+      name varchar(250),
+      magazine varchar(100),
+      year integer,
+	  rating real
+    );
 
-INSERT INTO Employee values
-('1', '1', '1', 'Kate', 4),
-('2', '1', '1', 'Lidia', 2),
-('3', '1', '1', 'Alexey', 1),
-('4', '1', '2', 'Pier', 7),
-('5', '1', '2', 'Aurel', 6),
-('6', '1', '2', 'Klaudia', 1),
-('7', '2', '3', 'Klaus', 12),
-('8', '2', '3', 'Maria', 11),
-('9', '2', '4', 'Kate', 10),
-('10', '3', '5', 'Peter', 8),
-('11', '3', '5', 'Sergey', 9),
-('12', '3', '6', 'Olga', 12),
-('13', '3', '6', 'Maria', 14),
-('14', '4', '7', 'Irina', 2),
-('15', '4', '7', 'Grit', 10),
-('16', '4', '7', 'Vanessa', 16),
-('17', '5', '8', 'Sascha', 21),
-('18', '5', '8', 'Ben', 22),
-('19', '6', '9', 'Jessy', 19),
-('20', '6', '9', 'Ann', 18);
+CREATE TABLE IF NOT EXISTS Patient 
+ 	(
+      id integer PRIMARY KEY,
+      name varchar(30),
+	  surname varchar(30),
+      birthday date
+    );
+    
+CREATE TABLE IF NOT EXISTS Emp_Pub 
+ 	(
+      id_emp integer REFERENCES Employee(id),
+      id_pub integer REFERENCES Publication(id),
+      PRIMARY KEY (id_emp, id_pub)                 -- составной первичный ключ
+    );
 
-*/
+CREATE TABLE IF NOT EXISTS Therapy 
+ 	(
+      id_pat integer REFERENCES Patient(id),
+      id_emp integer REFERENCES Employee(id),
+      date date,
+      diagnosis_code varchar(10) REFERENCES Diagnosis(code),
+      PRIMARY KEY (id_pat, id_emp, date)                 -- составной первичный ключ
+    );
+
+psql -U postgres -c "\\copy Department FROM '/usr/local/share/netology/itog/Department.csv' DELIMITER ',' CSV HEADER"
+psql -U postgres -c "\\copy Degree FROM '/usr/local/share/netology/itog/Degree.csv' DELIMITER ',' CSV HEADER"
+psql -U postgres -c "\\copy Emp_Pub FROM '/usr/local/share/netology/itog/Emp_Pub.csv' DELIMITER ',' CSV HEADER"
+psql -U postgres -c "\\copy Employee FROM '/usr/local/share/netology/itog/Employee.csv' DELIMITER ',' CSV HEADER"
+psql -U postgres -c "\\copy Patient FROM '/usr/local/share/netology/itog/Patient.csv' DELIMITER ',' CSV HEADER"
+psql -U postgres -c "\\copy Publication FROM '/usr/local/share/netology/itog/Publication.csv' DELIMITER ',' CSV HEADER"
+psql -U postgres -c "\\copy Therapy FROM '/usr/local/share/netology/itog/Therapy.csv' DELIMITER ',' CSV HEADER"
+
+
 
 
 --a Вывести список названий департаментов и количество главных врачей в каждом из этих департаментов
