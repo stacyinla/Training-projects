@@ -1,3 +1,4 @@
+id;dep_id;chief_id;name;degree_id
 1;1;5;Emma;3
 2;1;1;Stewart;5
 3;1;1;Connor;null
