@@ -1,7 +1,7 @@
 id;name
-1;"""Therapy"""
-2;"""Neurology"""
-3;"""Cardiology"""
-4;"""Gastroenterology"""
-5;"""Hematology"""
-6;"""Oncology"""
+1;Therapy
+2;Neurology
+3;Cardiology
+4;Gastroenterology
+5;Hematology
+6;Oncology
