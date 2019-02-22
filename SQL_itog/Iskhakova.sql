@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS Therapy
       id_pat integer REFERENCES Patient(id),
       id_emp integer REFERENCES Employee(id),
       date date,
-      diagnosis_code varchar(10) REFERENCES Diagnosis(code),
+      diagnosis_code varchar(10),
       PRIMARY KEY (id_pat, id_emp, date)                 -- составной первичный ключ
     );
 
