@@ -52,7 +52,7 @@ INSERT INTO Employee values
 WITH Count_table AS
 	(
       SELECT department_id, 
-      		 count(distinct chief_doc_id) AS chief_doc_count
+      count(distinct chief_doc_id) AS chief_doc_count
       FROM Employee
       GROUP BY department_id
     )
@@ -72,7 +72,7 @@ WITH Count_table AS
       FROM Employee
       )
 SELECT 	DISTINCT Department.id AS id,
-		Department.name AS name,
+	Department.name AS name,
         Count_table.Employee_Count
 FROM Department JOIN Count_table
 	ON Department.id = Count_table.department_id
@@ -85,34 +85,36 @@ WHERE Count_table.Employee_count > 2
 WITH Sum_table AS
 	(
       SELECT  	DISTINCT department_id,
-				SUM(num_public) OVER (PARTITION BY department_id ) AS sum_public_value
+		SUM(num_public) OVER (PARTITION BY department_id ) AS sum_public_value
       FROM Employee
       ORDER BY sum_public_value DESC
     )
 SELECT	Sum_table.department_id,
-		Department.name,
+	Department.name,
         Sum_table.sum_public_value
 FROM Sum_table JOIN Department
 	ON Sum_table.department_id = Department.id
-WHERE Sum_table.sum_public_value IN (SELECT  	SUM(num_public) OVER (PARTITION BY department_id ) AS sum_public_value
-      								FROM Employee
-     								ORDER BY sum_public_value DESC 
-                           			limit 1)
+WHERE Sum_table.sum_public_value IN (
+					SELECT	SUM(num_public) OVER (PARTITION BY department_id ) AS sum_public_value
+					FROM Employee
+					ORDER BY sum_public_value DESC 
+					limit 1
+				    )
 ;
       
       
 --d Вывести список сотрудников с минимальным количеством публикаций в своем департаменте (id и название департамента, имя сотрудника, количество публикаций)
 
 WITH Min_table AS
-	 (
-     SELECT DISTINCT department_id,
+ (
+     SELECT 	DISTINCT department_id,
        		Department.name AS dep_name,
      		MIN(num_public) OVER (PARTITION BY department_id) AS min_public
      FROM Department INNER JOIN Employee
      		ON Employee.department_id = Department.id
-     )
+ )
 SELECT  DISTINCT Min_table.department_id, 
-		dep_name, 
+	dep_name, 
         name, 
         num_public
 FROM Min_table LEFT JOIN Employee
@@ -126,12 +128,12 @@ ORDER BY Min_table.department_id;
 
 WITH Glav AS
 	(
-      SELECT 	DISTINCT chief_doc_id
-      FROM Employee
+      	SELECT 	DISTINCT chief_doc_id
+      	FROM Employee
 	)
 SELECT  department_id,
-		Department.name,
-		AVG(num_public)
+	Department.name,
+	AVG(num_public)
 FROM Employee INNER JOIN Glav 
 	ON id = Glav.chief_doc_id
     	INNER JOIN Department
