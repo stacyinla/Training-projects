@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS Emp_Pub
  	(
       id_emp integer REFERENCES Employee(id),
       id_pub integer REFERENCES Publication(id),
-      PRIMARY KEY (id_emp, id_pub)                 -- составной первичный ключ
+      PRIMARY KEY (id_emp, id_pub)                
     );
 
 CREATE TABLE IF NOT EXISTS Therapy 
@@ -49,16 +49,16 @@ CREATE TABLE IF NOT EXISTS Therapy
       id_emp integer REFERENCES Employee(id),
       date date,
       diagnosis_code varchar(10),
-      PRIMARY KEY (id_pat, id_emp, date)                 -- составной первичный ключ
+      PRIMARY KEY (id_pat, id_emp, date)                 
     );
 
-psql -U postgres -c "\\copy Department FROM '/usr/local/share/netology/itog/Department.csv' DELIMITER ',' CSV HEADER"
-psql -U postgres -c "\\copy Degree FROM '/usr/local/share/netology/itog/Degree.csv' DELIMITER ',' CSV HEADER"
-psql -U postgres -c "\\copy Emp_Pub FROM '/usr/local/share/netology/itog/Emp_Pub.csv' DELIMITER ',' CSV HEADER"
-psql -U postgres -c "\\copy Employee FROM '/usr/local/share/netology/itog/Employee.csv' DELIMITER ',' CSV HEADER"
-psql -U postgres -c "\\copy Patient FROM '/usr/local/share/netology/itog/Patient.csv' DELIMITER ',' CSV HEADER"
-psql -U postgres -c "\\copy Publication FROM '/usr/local/share/netology/itog/Publication.csv' DELIMITER ',' CSV HEADER"
-psql -U postgres -c "\\copy Therapy FROM '/usr/local/share/netology/itog/Therapy.csv' DELIMITER ',' CSV HEADER"
+psql -U postgres -c "\\copy Department FROM '/usr/local/share/netology/itog/Department.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Degree FROM '/usr/local/share/netology/itog/Degree.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Emp_Pub FROM '/usr/local/share/netology/itog/Emp_Pub.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Employee FROM '/usr/local/share/netology/itog/Employee.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Patient FROM '/usr/local/share/netology/itog/Patient.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Publication FROM '/usr/local/share/netology/itog/Publication.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Therapy FROM '/usr/local/share/netology/itog/Therapy.csv' DELIMITER ';' CSV HEADER"
 
 
 
