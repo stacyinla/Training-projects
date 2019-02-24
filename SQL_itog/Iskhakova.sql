@@ -224,24 +224,17 @@ LIMIT 15
 
 
 
---e Вывести список департаментов и среднее количество публикаций для тех департаментов, в которых работает более одного главного врача (id и название департамента, среднее количество публикаций)
+--10-- Вывести список департаментов и среднее количество принятых пациентов врачами этого департамента
 
 
-WITH Glav AS
-	(
-      SELECT 	DISTINCT chief_doc_id
-      FROM Employee
-	)
-SELECT  department_id,
+SELECT 	DISTINCT Employee.dep_id,
 		Department.name,
-		AVG(num_public)
-FROM Employee INNER JOIN Glav 
-	ON id = Glav.chief_doc_id
-    	INNER JOIN Department
-    		ON Employee.department_id = Department.id
-GROUP BY department_id, Department.name
-HAVING COUNT(Employee.id) > 1
-ORDER BY department_id
+		COUNT(Therapy.id_pat) OVER (PARTITION BY Employee.dep_id) as Patient_Count
+		
+FROM Employee INNER JOIN Therapy
+	ON Employee.id = Therapy.id_emp
+		INNER JOIN Department
+			ON Employee.dep_id = Department.id
+ORDER BY Employee.dep_id
 ;
-   
-   
+	
