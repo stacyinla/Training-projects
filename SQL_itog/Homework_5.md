@@ -14,16 +14,16 @@
 <img src="bd.PNG" alt=""><br/>
 БД разворачивалась на виртуальной машине.<br/>
 </p>
-
+<br/><br/><br/>
 
 <p>2. Создание таблиц и их заполнение.<br/>
 SQL-команды на создание таблиц:<br/>
 <pre>
 CREATE TABLE IF NOT EXISTS Department 
- 	(
-      id integer PRIMARY KEY,
-      name varchar(100)
-    );
+(
+id integer PRIMARY KEY,
+name varchar(100)
+);
     
 CREATE TABLE IF NOT EXISTS Degree
  	(
@@ -76,56 +76,213 @@ CREATE TABLE IF NOT EXISTS Therapy
 
 <br/><br/><br/>
 
+Команды для заполнения БД через командную строку из файлов csv :<br/>
 
-
-<img src="bd.PNG" alt=""><br/>
-БД разворачивалась на виртуальной машине.<br/>
-</p>
-
-
-
-
-1) подключиться к Mongo из командной строки Linux и загрузить в Mongo текстовый JSON-файл;
-</p>
 <pre>
-/usr/bin/mongo localhost:27017
+psql -U postgres -c "\\copy Department FROM '/usr/local/share/netology/itog/Department.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Degree FROM '/usr/local/share/netology/itog/Degree.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Emp_Pub FROM '/usr/local/share/netology/itog/Emp_Pub.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Employee FROM '/usr/local/share/netology/itog/Employee.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Patient FROM '/usr/local/share/netology/itog/Patient.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Publication FROM '/usr/local/share/netology/itog/Publication.csv' DELIMITER ';' CSV HEADER"
+psql -U postgres -c "\\copy Therapy FROM '/usr/local/share/netology/itog/Therapy.csv' DELIMITER ';' CSV HEADER"
 </pre>
+<br/><br/><br/>
+
+<p>3. SQL-запросы и их рехультаты.<br/>
 <pre>
-/usr/bin/mongoimport --host localhost --port 27017 --db movies --collection tags --file /usr/local/share/netology/raw_data/simple_tags.json
-use movies
+--1-- Вывести список пациентов, обращавшихся к врачу более 15 раз (id, имя, фамилию, дату рождения и кол-во раз обращений)
+
+SELECT 	Patient.id,
+		Patient.name,
+		Patient.surname,
+		Patient.birthday,
+		COUNT(Therapy.id_emp)
+FROM Patient INNER JOIN Therapy
+	ON Patient.id = Therapy.id_pat
+GROUP BY Patient.id
+HAVING COUNT(Therapy.id_emp) > 15
+;
 </pre>
-<img src="hw5_1.PNG" alt="">
+<img src="1.PNG" alt="">
 <br/><br/>
-
-<p>
-2) выполнить запросы к Mongo через консоль:<br/>
-2.1) подсчитайте число элементов в созданной коллекции tags в bd movies
-</p>
 <pre>
-db.tags.count()
+--2 Вывести список сотрудников-докторов наук (id, имя, название департамента, степень), вывести по департаментам (сортировка в списке)
+SELECT 	Employee.id,
+		Employee.name,
+		Department.name,
+		Degree.name
+FROM Employee INNER JOIN Department
+	ON Employee.dep_id = Department.id
+		INNER JOIN Degree 
+			ON Employee.degree_id = Degree.id
+WHERE Degree.name LIKE 'Doctor%'
+ORDER BY Department.name
+;
 </pre>
-<img src="hw5_2.PNG" alt="">
+<img src="2-1.PNG" alt=""><br/>
+<img src="2-2.PNG" alt="">
 <br/><br/>
-
-<p>
-2.2) подсчитайте число фильмов с конкретным тегом - woman
-</p>
 <pre>
-db.tags.find({name:'woman'}).count()
-</pre>
-<img src="hw5_3.PNG" alt="">
-<br/><br/>
+--3-- Вывести топ-15 сотрудников-докторов наук по среднему рейтингу их публикаций (id, имя, департамент, степень, средний рейтинг публикаций)
 
-<p>
-2.3) используя группировку данных ($groupby) вывести top-3 самых распространённых тегов. <br/>
-Удалось справиться только с подсказками в Slack, трудности были в разборке синтаксиса запроса. 
-</p>
+WITH Ratings AS
+	(
+		SELECT 	DISTINCT Emp_Pub.id_emp,
+				AVG (Publication.rating) OVER (PARTITION BY id_emp) as Average
+		FROM Emp_Pub INNER JOIN Publication
+			ON Emp_pub.id_pub = Publication.id
+	)
+SELECT Employee.id AS id,
+			Employee.name,
+			Department.name,
+			Degree.name,
+			Ratings.Average
+      FROM Employee INNER JOIN Department
+		ON Employee.dep_id = Department.id
+			INNER JOIN Degree 
+				ON Employee.degree_id = Degree.id
+					INNER JOIN Ratings 
+						ON Employee.id = Ratings.id_emp
+	  WHERE Degree.name LIKE 'Doctor%'
+	  ORDER by Ratings.Average DESC
+	  LIMIT 15
+;
+</pre>
+<img src="3.PNG" alt="">
+<br/><br/>
 <pre>
-db.tags.aggregate([ {$group: {_id: "$name", tag_count: {$sum: 1}}} , {$sort: {tag_count: -1} } , {$limit : 3} ])
-</pre>
-<img src="hw5_4.PNG" alt="">
-<br/><br/>
+--4--  Вывести данные, сколько сотрудник написал статей по годам (id сотрудника, имя сотрудника, год публикации, кол-во публикаций в этом году), упорядочить по id сотрудника
 
+SELECT 	DISTINCT Emp_Pub.id_emp,
+		Employee.name,
+		Publication.year,
+		COUNT(Emp_pub.id_pub) OVER (PARTITION BY id_emp, year)
+FROM Emp_Pub INNER JOIN Publication
+	ON Emp_pub.id_pub = Publication.id
+		INNER JOIN Employee 
+			ON Emp_Pub.id_emp = Employee.id
+ORDER BY Emploee.id
+;
+</pre>
+<img src="4.PNG" alt="">
+<br/><br/>
+<pre>
+--5-- Вывести сотрудников отделения гастроэнтерологии, не написавших ни одной публикации в 2018 году (id, имя)
+
+WITH Pub2018 AS
+	(
+	SELECT 	DISTINCT Emp_Pub.id_emp,
+			Publication.year,
+			COUNT(Emp_pub.id_pub) OVER (PARTITION BY id_emp, year)
+	FROM Emp_Pub INNER JOIN Publication
+		ON Emp_pub.id_pub = Publication.id
+	WHERE year = 2018
+	)
+SELECT  Employee.id,
+		Employee.name
+FROM Employee INNER JOIN Department
+	ON Employee.dep_id = Department.id
+		LEFT JOIN Pub2018
+			ON Employee.id = Pub2018.id_emp
+
+WHERE 	id_emp IS NULL AND
+		Department.name LIKE 'Gastro%'
+;
+</pre>
+<img src="5.PNG" alt="">
+<br/><br/>
+<pre>
+--6-- Вывести, сколько принял больных за время работы каждый врач (id сотрудника, имя сотрудника, отделение, кол-во приемов), сортировать по id сотрудника
+
+SELECT  DISTINCT Employee.id,
+		Employee.name,
+		Department.name,
+		COUNT(Therapy.id_pat) OVER (PARTITION BY Therapy.id_emp)
+FROM Employee INNER JOIN Therapy
+	ON Employee.id = Therapy.id_emp
+		INNER JOIN Department
+			ON Employee.dep_id = Department.id
+ORDER BY Employee.id
+;
+</pre>
+<img src="6.PNG" alt="">
+<br/><br/>
+<pre>
+--7-- Вывести список пациентов и дату их последнего визита (id, имя и дату визита)
+
+SELECT  DISTINCT Patient.id,
+		Patient.name,
+		Patient.surname,
+		MAX(Therapy.date) OVER (PARTITION BY Therapy.id_pat) AS LastDate
+FROM Patient LEFT JOIN Therapy
+	ON Patient.id = Therapy.id_pat
+ORDER BY LastDate DESC
+;
+</pre>
+<img src="7.PNG" alt="">
+<br/><br/>
+<pre>
+--8-- Вывести список публикаций, в которых не более 8 соавторов (id, имя публикации, журнал, год, рейтинг и число авторов)
+
+SELECT 	DISTINCT Publication.id,
+		
+		Publication.name,
+		Publication.magazine,
+		Publication.year,
+		Publication.rating,
+		COUNT(id_emp)
+FROM Emp_Pub INNER JOIN Publication
+	ON Emp_Pub.id_pub = Publication.id
+GROUP BY Publication.id
+HAVING COUNT(id_emp) < 8
+;
+</pre>
+<img src="8.PNG" alt="">
+<br/><br/>
+<pre>
+--9-- Вывести топ-15 сотрудников, принявших более всего пациентов в 2018 году (id, имя врача, название департамента, количество приемов в 2018 году)
+
+WITH Count_table AS
+	(
+    SELECT  DISTINCT Employee.id,
+			COUNT(Therapy.id_pat) OVER (PARTITION BY Therapy.id_emp, Employee.dep_id) AS ValuePerYear
+	FROM Employee INNER JOIN Therapy
+		ON Employee.id = Therapy.id_emp
+	)
+
+SELECT	Employee.id,
+		Employee.name,
+		Department.name,
+		Count_table.ValuePerYear
+FROM Employee INNER JOIN Count_table
+	ON Employee.id = Count_table.id
+		INNER JOIN Department
+			ON Employee.dep_id = Department.id
+ORDER BY ValuePerYear DESC
+LIMIT 15
+;
+</pre>
+<img src="9.PNG" alt="">
+<br/><br/>
+<pre>
+--10-- Вывести список департаментов и среднее количество принятых пациентов врачами этого департамента
+
+
+SELECT 	DISTINCT Employee.dep_id,
+		Department.name,
+		COUNT(Therapy.id_pat) OVER (PARTITION BY Employee.dep_id) as Patient_Count
+		
+FROM Employee INNER JOIN Therapy
+	ON Employee.id = Therapy.id_emp
+		INNER JOIN Department
+			ON Employee.dep_id = Department.id
+ORDER BY Employee.dep_id
+;
+	</pre>
+<img src="10.PNG" alt="">
+<br/><br/>
+<pre>
 
 
 
