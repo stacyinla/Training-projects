@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS Department
 id integer PRIMARY KEY,
 name varchar(100)
 );
+
     
 CREATE TABLE IF NOT EXISTS Degree
  	(
@@ -89,7 +90,7 @@ psql -U postgres -c "\\copy Therapy FROM '/usr/local/share/netology/itog/Therapy
 </pre>
 <br/><br/><br/>
 
-<p>3. SQL-запросы и их рехультаты.<br/>
+<p>3. SQL-запросы и их результаты.<br/>
 <pre>
 --1-- Вывести список пациентов, обращавшихся к врачу более 15 раз (id, имя, фамилию, дату рождения и кол-во раз обращений)
 
